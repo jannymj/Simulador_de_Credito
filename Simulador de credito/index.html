@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Crédito</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Simuladores</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Simulador de Crédito</h1>
+            <div class="options">
+                <button onclick="showSection('simple')">Calcular Interés Simple</button>
+                <button onclick="showSection('compound')">Calcular Interés Compuesto</button>
+                <button onclick="showSection('present')">Calcular Valor Presente</button>
+            </div>
+
+            <div id="simple" class="section">
+                <h2>Interés Simple</h2>
+                <label>Capital:</label>
+                <input type="number" id="simpleCapital" step="0.01">
+                <label>Tasa de Interés (ej. 0.05 para 5%):</label>
+                <input type="number" id="simpleTasa" step="0.01">
+                <label>Tiempo en años (puede ser una fracción, ej. 0.5 para seis meses):</label>
+                <input type="number" id="simpleTiempo" step="0.01">
+                <button onclick="calcularInteresSimple()">Calcular</button>
+                <p id="simpleResultado"></p>
+            </div>
+
+            <div id="compound" class="section">
+                <h2>Interés Compuesto</h2>
+                <label>Capital:</label>
+                <input type="number" id="compoundCapital" step="0.01">
+                <label>Tasa de Interés (ej. 0.05 para 5%):</label>
+                <input type="number" id="compoundTasa" step="0.01">
+                <label>Tiempo en años:</label>
+                <input type="number" id="compoundTiempo" step="0.01">
+                <label>Número de veces que se capitaliza el interés por año (ej. 1 para anual, 2 para semestral, 4 para trimestral, 12 para mensual):</label>
+                <input type="number" id="compoundN">
+                <button onclick="calcularInteresCompuesto()">Calcular</button>
+                <p id="compoundResultado"></p>
+                <table id="compoundTabla"></table>
+            </div>
+
+            <div id="present" class="section">
+                <h2>Valor Presente</h2>
+                <label>Monto Futuro:</label>
+                <input type="number" id="presentFuturo" step="0.01">
+                <label>Tasa de Interés (ej. 0.05 para 5%):</label>
+                <input type="number" id="presentTasa" step="0.01">
+                <label>Tiempo en años:</label>
+                <input type="number" id="presentTiempo" step="0.01">
+                <label>Número de veces que se capitaliza el interés por año (ej. 1 para anual, 2 para semestral, 4 para trimestral, 12 para mensual):</label>
+                <input type="number" id="presentN">
+                <button onclick="calcularValorPresente()">Calcular</button>
+                <p id="presentResultado"></p>
+                <table id="presentTabla"></table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 banco. Todos los derechos reservados.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
